@@ -7,6 +7,8 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -15,6 +17,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.CapabilityType;
@@ -31,7 +34,8 @@ import org.apache.logging.log4j.Logger;  //Log4j
 
 public class BaseClass {
 
-public static WebDriver driver;
+//public static WebDriver driver; //for capture screenshot make it static other wise remove static
+public WebDriver driver; 
 public Logger logger;  //Log4j
 public Properties p;
 	
@@ -49,11 +53,17 @@ public Properties p;
 		if(p.getProperty("execution_env").equalsIgnoreCase("remote"))
 		{
 			DesiredCapabilities capabilities=new DesiredCapabilities();
+			Map<String, Object> prefs = new HashMap<>();
+
+			prefs.put("credentials_enable_service", false);
+			prefs.put("profile.password_manager_leak_detection", false);
+
+			capabilities.setCapability("prefs", prefs);
 			
 			//os
 			if(os.equalsIgnoreCase("windows"))
 			{
-				capabilities.setPlatform(Platform.WIN11);
+				capabilities.setPlatform(Platform.WINDOWS);
 			}
 			else if(os.equalsIgnoreCase("linux"))
 			{
@@ -88,7 +98,14 @@ public Properties p;
 
 			switch(br.toLowerCase())
 			{
-			case "chrome" : driver=new ChromeDriver(); break;
+			case "chrome" :
+				ChromeOptions options = new ChromeOptions();
+				Map<String, Object> prefs = new HashMap<>();
+				prefs.put("credentials_enable_service", false);
+				prefs.put("profile.password_manager_leak_detection", false);
+				options.setExperimentalOption("prefs", prefs);
+				driver = new ChromeDriver(options);
+				break;
 			case "edge" : driver=new EdgeDriver(); break;
 			case "firefox": driver=new FirefoxDriver(); break;
 			default : System.out.println("Invalid browser name.."); return;
@@ -99,7 +116,7 @@ public Properties p;
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
-		driver.get(p.getProperty("appURL2")); // reading url from properties file.
+		driver.get(p.getProperty("appURL")); // reading url from properties file.
 		driver.manage().window().maximize();
 	}
 	

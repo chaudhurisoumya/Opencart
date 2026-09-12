@@ -1,8 +1,14 @@
 package pageObjects;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class AccountRegistrationPage extends BasePage{
 	
@@ -33,7 +39,7 @@ WebElement txtConfirmPassword;
 @FindBy(xpath="//input[@name='agree']") 
 WebElement chkdPolicy;
 
-@FindBy(xpath="//input[@value='Continue']") 
+@FindBy(xpath="//input[@value='Continue'] | //button[text()='Continue']")
 WebElement btnContinue;
 
 @FindBy(xpath = "//h1[normalize-space()='Your Account Has Been Created!']")
@@ -71,7 +77,11 @@ public void setConfirmPassword(String pwd) {
 }
 
 public void setPrivacyPolicy() {
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+    js.executeScript("window.scrollBy(0, 300);");
 	chkdPolicy.click();
+    //WebDriverWait mywait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    //mywait.until(ExpectedConditions.elementToBeClickable(chkdPolicy)).click();
 
 }
 

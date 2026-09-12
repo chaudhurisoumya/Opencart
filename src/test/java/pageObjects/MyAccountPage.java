@@ -10,11 +10,11 @@ public class MyAccountPage extends BasePage{
 		super(driver);
 	}
 
-	@FindBy(xpath = "//h2[text()='My Account']") // MyAccount Page heading
+	@FindBy(xpath = "//h2[text()='My Account'] | //span[text()='My Account']") // MyAccount Page heading
 	WebElement msgHeading;
 	
 	
-	@FindBy(xpath = "//div[@class='list-group']//a[text()='Logout']")   //added in step6
+	@FindBy(xpath = "//div[@class='list-group']//a[text()='Logout'] | //div[@class='dropdown']//a[text()='Logout']")   //added in step6
 	WebElement lnkLogout;
 	
 	

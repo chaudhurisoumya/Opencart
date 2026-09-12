@@ -1,27 +1,48 @@
-2024-05-09 06:50:17 INFO  TC001_AccountRegistrationTest:15 - ***** Starting TC001_AccountRegistrationTest  ****
-2024-05-09 06:50:17 INFO  TC001_AccountRegistrationTest:21 - Clicked on MyAccount Link.. 
-2024-05-09 06:50:18 INFO  TC001_AccountRegistrationTest:24 - Clicked on Register Link.. 
-2024-05-09 06:50:18 INFO  TC001_AccountRegistrationTest:28 - Providing customer details...
-2024-05-09 06:50:19 INFO  TC001_AccountRegistrationTest:42 - Validating expected message..
-2024-05-09 06:50:19 INFO  TC001_AccountRegistrationTest:47 - Test passed
-2024-05-09 06:50:19 INFO  TC001_AccountRegistrationTest:56 - ***** Finished TC001_AccountRegistrationTest *****
-2024-05-09 06:50:23 INFO  TC002_LoginTest:16 - ****** Startign TC_002_LoginTest *****
-2024-05-09 06:50:25 INFO  TC002_LoginTest:41 - ****** Finished TC_002_LoginTest *****
-2024-05-09 07:07:24 INFO  TC001_AccountRegistrationTest:15 - ***** Starting TC001_AccountRegistrationTest  ****
-2024-05-09 07:07:24 INFO  TC001_AccountRegistrationTest:21 - Clicked on MyAccount Link.. 
-2024-05-09 07:07:24 INFO  TC001_AccountRegistrationTest:24 - Clicked on Register Link.. 
-2024-05-09 07:07:24 INFO  TC001_AccountRegistrationTest:28 - Providing customer details...
-2024-05-09 07:07:26 INFO  TC001_AccountRegistrationTest:42 - Validating expected message..
-2024-05-09 07:07:26 INFO  TC001_AccountRegistrationTest:47 - Test passed
-2024-05-09 07:07:26 INFO  TC001_AccountRegistrationTest:56 - ***** Finished TC001_AccountRegistrationTest *****
-2024-05-09 07:07:30 INFO  TC002_LoginTest:16 - ****** Startign TC_002_LoginTest *****
-2024-05-09 07:07:32 INFO  TC002_LoginTest:41 - ****** Finished TC_002_LoginTest *****
-2024-05-09 07:10:46 INFO  TC001_AccountRegistrationTest:15 - ***** Starting TC001_AccountRegistrationTest  ****
-2024-05-09 07:10:46 INFO  TC001_AccountRegistrationTest:21 - Clicked on MyAccount Link.. 
-2024-05-09 07:10:47 INFO  TC001_AccountRegistrationTest:24 - Clicked on Register Link.. 
-2024-05-09 07:10:47 INFO  TC001_AccountRegistrationTest:28 - Providing customer details...
-2024-05-09 07:10:48 INFO  TC001_AccountRegistrationTest:42 - Validating expected message..
-2024-05-09 07:10:48 INFO  TC001_AccountRegistrationTest:47 - Test passed
-2024-05-09 07:10:48 INFO  TC001_AccountRegistrationTest:56 - ***** Finished TC001_AccountRegistrationTest *****
-2024-05-09 07:10:53 INFO  TC002_LoginTest:16 - ****** Startign TC_002_LoginTest *****
-2024-05-09 07:10:55 INFO  TC002_LoginTest:41 - ****** Finished TC_002_LoginTest *****
+2026-09-13 00:01:10 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 00:19:07 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 00:21:30 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 00:25:27 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 00:25:58 INFO  TC001AccountRegistrationTest:15 - ***** Starting TC001_AccountRegistrationTest  ****
+2026-09-13 00:26:02 INFO  TC001AccountRegistrationTest:21 - Clicked on MyAccount Link.. 
+2026-09-13 00:26:06 INFO  TC001AccountRegistrationTest:24 - Clicked on Register Link.. 
+2026-09-13 00:26:06 INFO  TC001AccountRegistrationTest:28 - Providing customer details...
+2026-09-13 00:26:18 ERROR TC001AccountRegistrationTest:51 - Test failed: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='input-telephone']"}
+  (Session info: chrome=152.0.7977.65)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [16a678e81bda4ef1e8613cc18f34c775, findElement {using=xpath, value=//input[@id='input-telephone']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 152.0.7977.65, chrome: {chromedriverVersion: 152.0.7977.82 (d04cdb24d67b..., userDataDir: C:\Users\SOUMYA~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55344}, goog:processID: 15860, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55344/devtoo..., se:cdpVersion: 152.0.7977.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 16a678e81bda4ef1e8613cc18f34c775
+2026-09-13 00:26:18 INFO  TC001AccountRegistrationTest:56 - ***** Finished TC001_AccountRegistrationTest *****
+2026-09-13 00:28:06 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 00:28:27 INFO  TC001AccountRegistrationTest:15 - ***** Starting TC001_AccountRegistrationTest  ****
+2026-09-13 00:28:28 INFO  TC001AccountRegistrationTest:21 - Clicked on MyAccount Link.. 
+2026-09-13 00:28:30 INFO  TC001AccountRegistrationTest:24 - Clicked on Register Link.. 
+2026-09-13 00:28:30 INFO  TC001AccountRegistrationTest:28 - Providing customer details...
+2026-09-13 00:28:41 ERROR TC001AccountRegistrationTest:51 - Test failed: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='input-telephone']"}
+  (Session info: chrome=152.0.7977.65)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ab1b87edf87c9442723a68ca88f163dd, findElement {value=//input[@id='input-telephone'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 152.0.7977.65, chrome: {chromedriverVersion: 152.0.7977.82 (d04cdb24d67b..., userDataDir: C:\Users\SOUMYA~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55420}, goog:processID: 6268, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55420/devtoo..., se:cdpVersion: 152.0.7977.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ab1b87edf87c9442723a68ca88f163dd
+2026-09-13 00:28:41 INFO  TC001AccountRegistrationTest:56 - ***** Finished TC001_AccountRegistrationTest *****
+2026-09-13 00:29:40 INFO  TC002LoginTest:16 - ****** Startign TC_002_LoginTest *****
+2026-09-13 00:29:56 INFO  TC004SearchProductTest:14 -  Starting TC_004_SearchProductTest 
+2026-09-13 00:30:00 INFO  TC004SearchProductTest:34 -  Finished TC_004_SearchProductTest 
+2026-09-13 00:30:19 INFO  TC005AddToCartPageTest:15 -  Starting TC_005_AddToCartPageTest 
+2026-09-13 00:30:34 INFO  TC005AddToCartPageTest:41 -  Finished TC_004_SearchProductTest 
