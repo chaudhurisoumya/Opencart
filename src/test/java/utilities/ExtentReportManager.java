@@ -2,6 +2,8 @@ package utilities;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
 //Extent report 5.x...//version
@@ -24,6 +26,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -42,6 +46,25 @@ public class ExtentReportManager implements ITestListener {
 	public ExtentTest test;
 
 	String repName;
+	FileReader f;
+	public Logger logger;  //Log4j
+	public Properties p;
+	public String config_properties="./src//test//resources//config.properties";
+	public String sender_email="sender_email";
+	public String sender_password="sender_password";
+	public String receiver_email="receiver_email";
+	public String document_title="document_title";
+	public String report_name="report_name";
+	public String application_name="application_name";
+	public String module_name="module_name";
+	public String sub_module_name="sub_module_name";
+	public String environment_name="environment_name";
+	public String mail_smtp_auth="mail_smtp_auth";
+	public String mail_smtp_start_tls_enable="mail_smtp_start_tls_enable";
+	public String mail_smtp_host="mail_smtp_host";
+	public String mail_smtp_port="mail_smtp_port";
+	public String email_subject="email_subject";
+	public String email_body="email_body";
 
 	public void onStart(ITestContext testContext) {
 		
@@ -49,22 +72,27 @@ public class ExtentReportManager implements ITestListener {
 		Date dt=new Date();
 		String currentdatetimestamp=df.format(dt);
 		*/
-		
-		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());// time stamp
+        try {
+            p=getConfigProperty(config_properties);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());// time stamp
 		repName = "Test-Report-" + timeStamp + ".html";
 		sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName);// specify location of the report
 
-		sparkReporter.config().setDocumentTitle("opencart Automation Report"); // Title of report
-		sparkReporter.config().setReportName("opencart Functional Testing"); // name of the report
+		sparkReporter.config().setDocumentTitle(p.getProperty(document_title)); // Title of report
+		sparkReporter.config().setReportName(p.getProperty(report_name)); // name of the report
 		sparkReporter.config().setTheme(Theme.DARK);
 		
 		extent = new ExtentReports();
 		extent.attachReporter(sparkReporter);
-		extent.setSystemInfo("Application", "opencart");
-		extent.setSystemInfo("Module", "Admin");
-		extent.setSystemInfo("Sub Module", "Customers");
+		extent.setSystemInfo("Application", p.getProperty(application_name));
+		extent.setSystemInfo("Module", p.getProperty(module_name));
+		extent.setSystemInfo("Sub Module", p.getProperty(sub_module_name));
 		extent.setSystemInfo("User Name", System.getProperty("user.name"));
-		extent.setSystemInfo("Environemnt", "QA");
+		extent.setSystemInfo("Environment", p.getProperty(environment_name));
 		
 		String os = testContext.getCurrentXmlTest().getParameter("os");
 		extent.setSystemInfo("Operating System", os);
@@ -110,8 +138,27 @@ public class ExtentReportManager implements ITestListener {
 		test.log(Status.INFO, result.getThrowable().getMessage());
 	}
 
-	public void onFinish(ITestContext testContext) {
-		
+	public void onFinish(ITestContext testContext){
+
+        /**FileReader file= null;
+        try {
+            file = new FileReader(config_properties);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        p=new Properties();
+        try {
+            p.load(file);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }**/
+        try {
+            p=getConfigProperty(config_properties);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        logger=LogManager.getLogger(this.getClass());  //lOG4J2
 		extent.flush();
 		
 		//To open report on desktop..
@@ -125,20 +172,25 @@ public class ExtentReportManager implements ITestListener {
 		}
 
 		//To send email with attachment
-		//sendEmail(sender email,sender password(encrypted),recipient email);
-		
-	}
+        try {
+            sendEmail(p.getProperty(sender_email),p.getProperty(sender_password),p.getProperty(receiver_email));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 	
 	
 	//User defined method for sending email..
-	public void sendEmail(String senderEmail,String senderPassword,String recipientEmail)
-	{
+	public void sendEmail(String senderEmail,String senderPassword,String recipientEmail) throws IOException {
+		p=getConfigProperty(config_properties);
 		// SMTP server properties
         Properties properties = new Properties();
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.auth",p.getProperty(mail_smtp_auth));
+        properties.put("mail.smtp.starttls.enable",p.getProperty(mail_smtp_start_tls_enable));
+        properties.put("mail.smtp.host",p.getProperty(mail_smtp_host));
+        properties.put("mail.smtp.port",p.getProperty(mail_smtp_port));
 
         // Create a Session object
         Session session = Session.getInstance(properties, new Authenticator() {
@@ -156,7 +208,7 @@ public class ExtentReportManager implements ITestListener {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipientEmail));
 
             // Set the subject
-            message.setSubject("Test Report with attachment");
+            message.setSubject(p.getProperty(email_subject));
 
             // Create a MimeMultipart object
             Multipart multipart = new MimeMultipart();
@@ -171,7 +223,7 @@ public class ExtentReportManager implements ITestListener {
 
             // Create a MimeBodyPart for the text content
             MimeBodyPart textPart = new MimeBodyPart();
-            textPart.setText("Please find the attached file.");
+            textPart.setText(p.getProperty(email_body));
 
             // Add the parts to the multipart
             multipart.addBodyPart(textPart);
@@ -189,6 +241,14 @@ public class ExtentReportManager implements ITestListener {
             e.printStackTrace();
         }
             
+	}
+
+	/*This method is for loading config.properties file*/
+	public Properties getConfigProperty(String file) throws IOException {
+		f=new FileReader(file);
+		p=new Properties();
+		p.load(f);
+		return p;
 	}
 
 }

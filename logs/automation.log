@@ -46,3 +46,46 @@ Session ID: ab1b87edf87c9442723a68ca88f163dd
 2026-09-13 00:30:00 INFO  TC004SearchProductTest:34 -  Finished TC_004_SearchProductTest 
 2026-09-13 00:30:19 INFO  TC005AddToCartPageTest:15 -  Starting TC_005_AddToCartPageTest 
 2026-09-13 00:30:34 INFO  TC005AddToCartPageTest:41 -  Finished TC_004_SearchProductTest 
+2026-09-13 09:36:04 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 09:42:26 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 09:54:18 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 09:57:31 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 10:05:57 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 10:06:25 INFO  TC001AccountRegistrationTest:15 - ***** Starting TC001_AccountRegistrationTest  ****
+2026-09-13 10:06:26 INFO  TC001AccountRegistrationTest:21 - Clicked on MyAccount Link.. 
+2026-09-13 10:06:31 INFO  TC001AccountRegistrationTest:24 - Clicked on Register Link.. 
+2026-09-13 10:06:31 INFO  TC001AccountRegistrationTest:28 - Providing customer details...
+2026-09-13 10:06:32 INFO  TC001AccountRegistrationTest:42 - Validating expected message..
+2026-09-13 10:06:34 INFO  TC001AccountRegistrationTest:47 - Test passed
+2026-09-13 10:06:34 INFO  TC001AccountRegistrationTest:56 - ***** Finished TC001_AccountRegistrationTest *****
+2026-09-13 10:06:49 INFO  TC002LoginTest:16 - ****** Startign TC_002_LoginTest *****
+2026-09-13 10:06:57 INFO  TC002LoginTest:41 - ****** Finished TC_002_LoginTest *****
+2026-09-13 10:07:05 INFO  TC004SearchProductTest:14 -  Starting TC_004_SearchProductTest 
+2026-09-13 10:07:09 INFO  TC004SearchProductTest:34 -  Finished TC_004_SearchProductTest 
+2026-09-13 10:07:15 INFO  TC005AddToCartPageTest:15 -  Starting TC_005_AddToCartPageTest 
+2026-09-13 10:07:22 INFO  TC005AddToCartPageTest:41 -  Finished TC_004_SearchProductTest 
+2026-09-13 10:39:18 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 11:03:23 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 11:53:29 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 11:56:27 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
+2026-09-13 11:59:29 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\Soumyadip\OneDrive\Desktop\Java Automation\Hybrid Driven Framework- Open Cart Application\Day-9\OpencartV121\OpencartV121\Master.xml
+
