@@ -50,6 +50,7 @@ public class ExtentReportManager implements ITestListener {
 	public Logger logger;  //Log4j
 	public Properties p;
 	public String config_properties="./src//test//resources//config.properties";
+	public String email_config_properties="./src//test//resources//email_config.properties";
 	public String sender_email="sender_email";
 	public String sender_password="sender_password";
 	public String receiver_email="receiver_email";
@@ -153,7 +154,7 @@ public class ExtentReportManager implements ITestListener {
             throw new RuntimeException(e);
         }**/
         try {
-            p=getConfigProperty(config_properties);
+            p=getConfigProperty(email_config_properties);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -184,7 +185,7 @@ public class ExtentReportManager implements ITestListener {
 	
 	//User defined method for sending email..
 	public void sendEmail(String senderEmail,String senderPassword,String recipientEmail) throws IOException {
-		p=getConfigProperty(config_properties);
+		p=getConfigProperty(email_config_properties);
 		// SMTP server properties
         Properties properties = new Properties();
         properties.put("mail.smtp.auth",p.getProperty(mail_smtp_auth));
